@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>fetchAll.fm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./main.js"></script>
+    <style>
+        #root {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        #all {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div id="root">
+            <p>It is *recommended* that your music is paused while fetching</p>
+            <button onclick="fetchData()">Fetch Data</button>
+            <br>
+            <input type="text" id="username" placeholder="Username">
+            <br>
+            <input type="text" id="apikey" placeholder="API key">
+            <p id="important">Click the button!</p>
+        </div>
+    </div>
+    
+</body>
+</html>
