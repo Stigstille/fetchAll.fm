@@ -1,7 +1,7 @@
 async function getData(currentPage) {
   const username = document.getElementById("username").value;
   const apikey = document.getElementById("apikey").value;
-  const url = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apikey}&limit=1000&format=json&page=${currentPage}`;
+  const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apikey}&limit=1000&format=json&page=${currentPage}`;
   try {
     const response = await fetch(url);
 
