@@ -29,7 +29,10 @@ async function fetchData() {
   totalPages = data.recenttracks["@attr"].totalPages;
   console.log("Total pages: " + totalPages);
   document.getElementById("important").innerHTML = "Total pages: " + totalPages;
-  let removedElement = data.recenttracks.track.shift();
+  if (data.recenttracks.track.length > 0 && data.recenttracks.track[0].hasOwnProperty('@attr')) {
+    let removedElement = data.recenttracks.track.shift();
+    console.log("Music currently playing! Output might miss a track!")
+  }
   for (let i = 0; i < data.recenttracks.track.length; i++) {
     jsonOutput.push(data.recenttracks.track[i]);
   }
@@ -38,7 +41,10 @@ async function fetchData() {
     document.getElementById("important").innerHTML = `Fetching page: ${currentPage}/${totalPages}`;
     data = await getData(currentPage);
     if (data !== null) {  
-        let removedElement = data.recenttracks.track.shift();
+        if (data.recenttracks.track.length > 0 && data.recenttracks.track[0].hasOwnProperty('@attr')) {
+          let removedElement = data.recenttracks.track.shift();
+          console.log("Music currently playing! Output might miss a track!")
+        }
         for (let i = 0; i < data.recenttracks.track.length; i++) {
         jsonOutput.push(data.recenttracks.track[i]);
         }
